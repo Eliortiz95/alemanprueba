@@ -73,6 +73,71 @@
       { type: 'translate', question: 'Übersetze ins Spanische: "Stuhl"', answer: 'silla' },
       { type: 'translate', question: 'Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
       { type: 'translate', question: 'Übersetze ins Spanische: "Tür"', answer: 'puerta' }
+const extraQuestions = [
+  // Traducciones DE -> ES
+  { type: 'translate', question: 'Übersetze ins Spanische: "Tisch"', answer: 'mesa' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Bleistift"', answer: 'lápiz' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Lampe"', answer: 'lámpara' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Haus"', answer: 'casa' },
+
+  // Traducciones ES -> DE con artículo
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "reloj"', answer: 'die Uhr' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "niña"', answer: 'das Mädchen' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "perro"', answer: 'der Hund' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "mesa"', answer: 'der Tisch' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "libro"', answer: 'das Buch' },
+
+  // Opción múltiple
+  { type: 'multiple', question: 'Was bedeutet "trinken"?', options: ['comer', 'beber', 'leer', 'escribir'], answer: 'beber' },
+  { type: 'multiple', question: 'Was bedeutet "lesen"?', options: ['leer', 'beber', 'correr', 'vivir'], answer: 'leer' },
+  { type: 'multiple', question: 'Was bedeutet "arbeiten"?', options: ['jugar', 'trabajar', 'dormir', 'beber'], answer: 'trabajar' },
+  { type: 'multiple', question: 'Was ist die richtige Übersetzung für "schlafen"?', options: ['comer', 'dormir', 'caminar', 'leer'], answer: 'dormir' },
+  { type: 'multiple', question: 'Was bedeutet "gehen"?', options: ['ir', 'venir', 'quedarse', 'hablar'], answer: 'ir' },
+
+  // Completar oraciones
+  { type: 'fill', question: 'Ich ____ eine Pizza. (essen)', answer: 'esse' },
+  { type: 'fill', question: 'Du ____ ein Buch. (lesen)', answer: 'liest' },
+  { type: 'fill', question: 'Wir ____ gern Musik. (hören)', answer: 'hören' },
+  { type: 'fill', question: 'Er ____ schnell. (laufen)', answer: 'läuft' },
+  { type: 'fill', question: 'Sie ____ in Berlin. (wohnen)', answer: 'wohnt' },
+
+  // Ordenar frases
+  { type: 'order', question: 'Ordne: ich / bin / müde', correctOrder: ['ich', 'bin', 'müde'] },
+  { type: 'order', question: 'Ordne: sie / spielt / Klavier', correctOrder: ['sie', 'spielt', 'Klavier'] },
+  { type: 'order', question: 'Ordne: wir / gehen / ins Kino', correctOrder: ['wir', 'gehen', 'ins Kino'] },
+  { type: 'order', question: 'Ordne: du / trinkst / Wasser', correctOrder: ['du', 'trinkst', 'Wasser'] },
+  { type: 'order', question: 'Ordne: ich / habe / Hunger', correctOrder: ['ich', 'habe', 'Hunger'] },
+
+  // Audio (Wikimedia Commons)
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/47/De-Buch.ogg', answer: 'Buch' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/De-Hund.ogg', answer: 'Hund' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/De-Katze.ogg', answer: 'Katze' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/13/De-Zimmer.ogg', answer: 'Zimmer' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/8/89/De-Schule.ogg', answer: 'Schule' },
+
+  // Más opción múltiple con vocabulario
+  { type: 'multiple', question: 'Was bedeutet "Haus"?', options: ['casa', 'perro', 'auto', 'niño'], answer: 'casa' },
+  { type: 'multiple', question: 'Was bedeutet "Auto"?', options: ['libro', 'auto', 'lámpara', 'perro'], answer: 'auto' },
+  { type: 'multiple', question: 'Was bedeutet "Freund"?', options: ['enemigo', 'amigo', 'padre', 'hijo'], answer: 'amigo' },
+  { type: 'multiple', question: 'Was bedeutet "Tasche"?', options: ['mochila', 'reloj', 'camisa', 'puerta'], answer: 'mochila' },
+  { type: 'multiple', question: 'Was bedeutet "Stadt"?', options: ['ciudad', 'cielo', 'auto', 'niña'], answer: 'ciudad' },
+
+  // Más traducciones con artículos
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "ciudad"', answer: 'die Stadt' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "ventana"', answer: 'das Fenster' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "niño"', answer: 'der Junge' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "lámpara"', answer: 'die Lampe' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "reloj"', answer: 'die Uhr' },
+
+  // Completar frases variadas
+  { type: 'fill', question: 'Er ____ einen Film. (sehen)', answer: 'sieht' },
+  { type: 'fill', question: 'Ich ____ ein Auto. (haben)', answer: 'habe' },
+  { type: 'fill', question: 'Du ____ gut Deutsch. (sprechen)', answer: 'sprichst' },
+  { type: 'fill', question: 'Sie ____ gern tanzen. (mögen)', answer: 'mag' },
+  { type: 'fill', question: 'Wir ____ nach Hause. (gehen)', answer: 'gehen' }
+];
+
     ];
 
     let current = 0;
