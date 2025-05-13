@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deutsch A2 Übung</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+    .question-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
+    .btn { padding: 10px 20px; border: none; background: #4CAF50; color: white; border-radius: 8px; cursor: pointer; margin: 5px 0; }
+    .btn:hover { background: #45a049; }
+    .score { font-size: 1.2em; margin-bottom: 20px; }
+    input[type=text] { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Deutsch A2: Interaktive Übungen</h1>
+  <div class="score">Punkte: <span id="score">0</span></div>
+  <div id="quiz-container"></div>
+  <button class="btn" onclick="restartQuiz()">Neu starten</button>
+
+  <script>
+    const questions = [
+      { type: 'multiple', question: 'Was bedeutet "laufen"?', options: ['correr', 'ver', 'comer', 'leer'], answer: 'correr' },
+      { type: 'multiple', question: 'Was bedeutet "sehen"?', options: ['ver', 'dormir', 'comer', 'escribir'], answer: 'ver' },
+      { type: 'multiple', question: 'Was heißt "schreiben"?', options: ['leer', 'escribir', 'dormir', 'correr'], answer: 'escribir' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "coche"', answer: 'das Auto' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "escuela"', answer: 'die Schule' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "ropa"', answer: 'die Kleidung' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "zapatos"', answer: 'die Schuhe' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "niño"', answer: 'der Junge' },
+      { type: 'fill', question: 'Er ____ einen Apfel. (essen)', answer: 'isst' },
+      { type: 'fill', question: 'Wir ____ nach Berlin. (fahren)', answer: 'fahren' },
+      { type: 'fill', question: 'Du ____ eine Katze. (haben)', answer: 'hast' },
+      { type: 'fill', question: 'Ich ____ gern Musik. (hören)', answer: 'höre' },
+      { type: 'fill', question: 'Sie ____ ein neues Kleid. (kaufen)', answer: 'kauft' },
+      { type: 'order', question: 'Ordne: wir / spielen / Fußball', correctOrder: ['wir', 'spielen', 'Fußball'] },
+      { type: 'order', question: 'Ordne: sie / liest / ein Buch', correctOrder: ['sie', 'liest', 'ein Buch'] },
+      { type: 'order', question: 'Ordne: ich / trinke / Wasser', correctOrder: ['ich', 'trinke', 'Wasser'] },
+      { type: 'order', question: 'Ordne: du / lernst / Deutsch', correctOrder: ['du', 'lernst', 'Deutsch'] },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Buch"', answer: 'libro' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Stuhl"', answer: 'silla' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Tür"', answer: 'puerta' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "agua"', answer: 'das Wasser' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "manzana"', answer: 'der Apfel' },
+      { type: 'multiple', question: 'Was bedeutet "essen"?', options: ['comer', 'correr', 'dormir', 'leer'], answer: 'comer' },
+      { type: 'multiple', question: 'Was bedeutet "trinken"?', options: ['beber', 'dormir', 'caminar', 'comer'], answer: 'beber' },
+      { type: 'multiple', question: 'Was heißt "schlafen"?', options: ['dormir', 'leer', 'comer', 'ver'], answer: 'dormir' },
+      { type: 'multiple', question: 'Was bedeutet "lernen"?', options: ['aprender', 'trabajar', 'jugar', 'leer'], answer: 'aprender' },
+      { type: 'multiple', question: 'Was ist die richtige Übersetzung für "Haus"?', options: ['casa', 'escuela', 'banco', 'puerta'], answer: 'casa' },
+      { type: 'multiple', question: 'Was ist die richtige Übersetzung für "Tisch"?', options: ['mesa', 'silla', 'puerta', 'ventana'], answer: 'mesa' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "luz"', answer: 'das Licht' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "camisa"', answer: 'das Hemd' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "trabajo"', answer: 'die Arbeit' },
+      { type: 'translate', question: 'Übersetze ins Deutsche: "perro"', answer: 'der Hund' },
+      { type: 'fill', question: 'Du ____ einen Apfel. (essen)', answer: 'isst' },
+      { type: 'fill', question: 'Wir ____ nach Hause. (gehen)', answer: 'gehen' },
+      { type: 'fill', question: 'Er ____ zu Hause. (bleiben)', answer: 'bleibt' },
+      { type: 'fill', question: 'Ich ____ meine Freunde. (sehen)', answer: 'sehe' },
+      { type: 'order', question: 'Ordne: ich / spiele / Basketball', correctOrder: ['ich', 'spiele', 'Basketball'] },
+      { type: 'order', question: 'Ordne: er / läuft / schnell', correctOrder: ['er', 'läuft', 'schnell'] },
+      { type: 'order', question: 'Ordne: sie / tanzt / gern', correctOrder: ['sie', 'tanzt', 'gern'] },
+      { type: 'order', question: 'Ordne: du / lernst / Deutsch', correctOrder: ['du', 'lernst', 'Deutsch'] },
+      { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/0/05/De-Haus.ogg', answer: 'Haus' },
+      { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/De-Schule.ogg', answer: 'Schule' },
+      { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/2/25/De-Katze.ogg', answer: 'Katze' },
+      { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/3/38/De-Auto.ogg', answer: 'Auto' },
+      { type: 'multiple', question: 'Was bedeutet "hören"?', options: ['oír', 'comer', 'ir', 'dormir'], answer: 'oír' },
+      { type: 'multiple', question: 'Was bedeutet "kaufen"?', options: ['beber', 'comprar', 'vender', 'abrir'], answer: 'comprar' },
+      { type: 'multiple', question: 'Was ist die Übersetzung von "spielen"?', options: ['jugar', 'correr', 'saltar', 'sentarse'], answer: 'jugar' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Buch"', answer: 'libro' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Stuhl"', answer: 'silla' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
+      { type: 'translate', question: 'Übersetze ins Spanische: "Tür"', answer: 'puerta' }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function renderQuestion() {
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = '';
+      if (current >= questions.length) {
+        container.innerHTML = `<h2>Übung abgeschlossen!</h2><p>Du hast ${score} Punkte.</p>`;
+        return;
+      }
+      const q = questions[current];
+      const card = document.createElement('div');
+      card.className = 'question-card';
+
+      const title = document.createElement('p');
+      title.textContent = q.question;
+      card.appendChild(title);
+
+      if (q.type === 'multiple') {
+        q.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.className = 'btn';
+          btn.textContent = opt;
+          btn.onclick = () => {
+            if (opt === q.answer) score++;
+            current++;
+            updateScore();
+            renderQuestion();
+          };
+          card.appendChild(btn);
+        });
+      } else if (q.type === 'translate' || q.type === 'fill') {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Antwort eingeben';
+        card.appendChild(input);
+        const submit = document.createElement('button');
+        submit.className = 'btn';
+        submit.textContent = 'Überprüfen';
+        submit.onclick = () => {
+          if (input.value.trim().toLowerCase() === q.answer.toLowerCase()) score++;
+          current++;
+          updateScore();
+          renderQuestion();
+        };
+        card.appendChild(submit);
+      } else if (q.type === 'order') {
+        const shuffled = [...q.correctOrder].sort(() => Math.random() - 0.5);
+        const selects = shuffled.map(word => {
+          const btn = document.createElement('button');
+          btn.textContent = word;
+          btn.className = 'btn';
+          return btn;
+        });
+        const result = [];
+        selects.forEach(btn => {
+          btn.onclick = () => {
+            result.push(btn.textContent);
+            btn.disabled = true;
+            if (result.length === q.correctOrder.length) {
+              if (JSON.stringify(result) === JSON.stringify(q.correctOrder)) score++;
+              current++;
+              updateScore();
+              renderQuestion();
+            }
+          };
+          card.appendChild(btn);
+        });
+      } else if (q.type === 'audio') {
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = q.src;
+        card.appendChild(audio);
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Antwort eingeben';
+        card.appendChild(input);
+        const submit = document.createElement('button');
+        submit.className = 'btn';
+        submit.textContent = 'Überprüfen';
+        submit.onclick = () => {
+          if (input.value.trim().toLowerCase() === q.answer.toLowerCase()) score++;
+          current++;
+          updateScore();
+          renderQuestion();
+        };
+        card.appendChild(submit);
+      }
+
+      container.appendChild(card);
+    }
+
+    function updateScore() {
+      document.getElementById('score').textContent = score;
+    }
+
+    function restartQuiz() {
+      current = 0;
+      score = 0;
+      updateScore();
+      renderQuestion();
+    }
+
+    renderQuestion();
+  </script>
+</body>
+</html>
