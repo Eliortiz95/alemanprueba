@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deutsch A2 Übung</title>
+  <title>Deutsch  Übung</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
     .question-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }
@@ -22,9 +22,9 @@
 
   <script>
     const questions = [
-      { type: 'multiple', question: '1. Was ist die richtige Übersetzung für "laufen"?', options: ['der correr', 'die comer', 'der dormir', 'die ver'], answer: 'der correr' },
-      { type: 'multiple', question: '2. Was bedeutet "sehen"?', options: ['der comer', 'die caminar', 'der ver', 'die escribir'], answer: 'der ver' },
-      { type: 'multiple', question: '3. Was heißt "schreiben"?', options: ['der dormir', 'die escribir', 'der leer', 'die ir'], answer: 'die escribir' },
+      { type: 'multiple', question: '1. Was ist die richtige Übersetzung für "laufen"?', options: ['correr', 'comer', 'dormir', 'ver'], answer: 'correr' },
+      { type: 'multiple', question: '2. Was bedeutet "sehen"?', options: ['comer', 'caminar', 'ver', 'escribir'], answer: 'ver' },
+      { type: 'multiple', question: '3. Was heißt "schreiben"?', options: ['dormir', 'escribir', 'leer', 'ir'], answer: 'escribir' },
       { type: 'translate', question: '4. Übersetze ins Deutsche: "coche"', answer: 'das Auto' },
       { type: 'translate', question: '5. Übersetze ins Deutsche: "escuela"', answer: 'die Schule' },
       { type: 'translate', question: '6. Übersetze ins Deutsche: "ropa"', answer: 'die Kleidung' },
@@ -42,13 +42,13 @@
       { type: 'audio', question: '18. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/19/De-Schule.ogg', answer: 'die Schule' },
       { type: 'audio', question: '19. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/2/25/De-Katze.ogg', answer: 'die Katze' },
       { type: 'audio', question: '20. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/3/38/De-Auto.ogg', answer: 'das Auto' },
-      { type: 'multiple', question: '21. Was bedeutet "hören"?', options: ['der oír', 'die comer', 'der ir', 'die dormir'], answer: 'der oír' },
-      { type: 'multiple', question: '22. Was bedeutet "kaufen"?', options: ['der beber', 'die comprar', 'der vender', 'die abrir'], answer: 'die comprar' },
-      { type: 'multiple', question: '23. Was ist die Übersetzung von "spielen"?', options: ['der jugar', 'die correr', 'der saltar', 'die sentarse'], answer: 'der jugar' },
-      { type: 'translate', question: '24. Übersetze ins Spanische: "Buch"', answer: 'das libro' },
-      { type: 'translate', question: '25. Übersetze ins Spanische: "Stuhl"', answer: 'der silla' },
-      { type: 'translate', question: '26. Übersetze ins Spanische: "Fenster"', answer: 'das ventana' },
-      { type: 'translate', question: '27. Übersetze ins Spanische: "Tür"', answer: 'die puerta' },
+      { type: 'multiple', question: '21. Was bedeutet "hören"?', options: ['escuchar', 'comer', 'ir', 'dormir'], answer: 'escuchar' },
+      { type: 'multiple', question: '22. Was bedeutet "kaufen"?', options: ['beber', 'comprar', 'vender', 'abrir'], answer: 'comprar' },
+      { type: 'multiple', question: '23. Was ist die Übersetzung von "spielen"?', options: ['jugar', 'correr', 'saltar', 'sentarse'], answer: 'jugar' },
+      { type: 'translate', question: '24. Übersetze ins Spanische: "Buch"', answer: 'libro' },
+      { type: 'translate', question: '25. Übersetze ins Spanische: "Stuhl"', answer: 'silla' },
+      { type: 'translate', question: '26. Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
+      { type: 'translate', question: '27. Übersetze ins Spanische: "Tür"', answer: 'puerta' },
       { type: 'fill', question: '28. Ich habe ____ Apfel. (der)', answer: 'den' },
       { type: 'fill', question: '29. Sie kaufen ____ Kleid. (das)', answer: 'das' },
       { type: 'fill', question: '30. Du trinkst ____ Wasser. (das)', answer: 'das' },
@@ -58,9 +58,9 @@
       { type: 'order', question: '34. Ordne: du / isst / ein Apfel', correctOrder: ['du', 'isst', 'ein Apfel'] },
       { type: 'order', question: '35. Ordne: wir / gehen / zum Park', correctOrder: ['wir', 'gehen', 'zum Park'] },
       { type: 'order', question: '36. Ordne: ich / habe / ein Buch', correctOrder: ['ich', 'habe', 'ein Buch'] },
-      { type: 'multiple', question: '37. Was bedeutet "laufen"?', options: ['der correr', 'die correr', 'die caminar', 'der correr'], answer: 'der correr' },
-      { type: 'multiple', question: '38. Was ist die richtige Übersetzung für "essen"?', options: ['der comer', 'die dormir', 'der comer', 'die comer'], answer: 'der comer' },
-      { type: 'multiple', question: '39. Was bedeutet "spielen"?', options: ['der leer', 'die leer', 'der jugar', 'die jugar'], answer: 'der jugar' },
+      { type: 'multiple', question: '37. Was bedeutet "laufen"?', options: ['correr', 'ver', 'caminar', 'estudiar'], answer: 'correr' },
+      { type: 'multiple', question: '38. Was ist die richtige Übersetzung für "essen"?', options: ['comer', 'dormir', 'correr', 'cocinar'], answer: 'comer' },
+      { type: 'multiple', question: '39. Was bedeutet "spielen"?', options: ['aprender', 'leer', 'jugar', 'ampliar'], answer: 'jugar' },
       { type: 'translate', question: '40. Übersetze ins Deutsche: "zapatos"', answer: 'die Schuhe' },
       { type: 'translate', question: '41. Übersetze ins Deutsche: "cielo"', answer: 'der Himmel' },
       { type: 'translate', question: '42. Übersetze ins Deutsche: "perro"', answer: 'der Hund' },
@@ -72,29 +72,71 @@
       { type: 'fill', question: '48. Sie gibt ____ Hund das Essen. (der)', answer: 'dem' },
       { type: 'order', question: '49. Ordne: wir / trinken / Apfelsaft', correctOrder: ['wir', 'trinken', 'Apfelsaft'] },
       { type: 'order', question: '50. Ordne: sie / haben / eine Katze', correctOrder: ['sie', 'haben', 'eine Katze'] },
-      { type: 'audio', question: '51. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/De-Brot.ogg', answer: 'das Brot' },
-      { type: 'audio', question: '52. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/47/De-Hund.ogg', answer: 'der Hund' },
-      { type: 'audio', question: '53. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/2/25/De-Sonne.ogg', answer: 'die Sonne' },
-      { type: 'audio', question: '54. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/10/De-Tisch.ogg', answer: 'der Tisch' },
-      { type: 'audio', question: '55. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/De-Haustier.ogg', answer: 'das Haustier' },
-      { type: 'audio', question: '56. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/42/De-Mensch.ogg', answer: 'der Mensch' },
-      { type: 'audio', question: '57. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/7/77/De-Wasser.ogg', answer: 'das Wasser' },
-      { type: 'audio', question: '58. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/De-Apfel.ogg', answer: 'der Apfel' },
-      { type: 'audio', question: '59. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/De-Schule.ogg', answer: 'die Schule' },
-      { type: 'audio', question: '60. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/6/6c/De-Kleidung.ogg', answer: 'die Kleidung' },
-      { type: 'audio', question: '61. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/56/De-Fenster.ogg', answer: 'das Fenster' },
-      { type: 'audio', question: '62. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/De-Buch.ogg', answer: 'das Buch' },
-      { type: 'audio', question: '63. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/2/26/De-Rucksack.ogg', answer: 'der Rucksack' },
-      { type: 'audio', question: '64. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/3/39/De-Hut.ogg', answer: 'der Hut' },
-      { type: 'audio', question: '65. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/56/De-Woche.ogg', answer: 'die Woche' },
-      { type: 'audio', question: '66. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/De-Zimmer.ogg', answer: 'das Zimmer' },
-      { type: 'audio', question: '67. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/4d/De-Teller.ogg', answer: 'der Teller' },
-      { type: 'audio', question: '68. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/56/De-Handschuh.ogg', answer: 'der Handschuh' },
-      { type: 'audio', question: '69. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/3/32/De-Vorhang.ogg', answer: 'der Vorhang' },
-      { type: 'audio', question: '70. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/De-Apfelbaum.ogg', answer: 'der Apfelbaum' },
-      { type: 'audio', question: '71. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/De-Hofer.ogg', answer: 'der Hofer' },
-      { type: 'audio', question: '72. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/De-Habitat.ogg', answer: 'der Habitat' },
-      { type: 'audio', question: '73. Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/De-Mensch.ogg', answer: 'der Mensch' }
+  const extraQuestions = [
+  // Traducciones DE -> ES
+  { type: 'translate', question: 'Übersetze ins Spanische: "Tisch"', answer: 'mesa' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Bleistift"', answer: 'lápiz' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Lampe"', answer: 'lámpara' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Fenster"', answer: 'ventana' },
+  { type: 'translate', question: 'Übersetze ins Spanische: "Haus"', answer: 'casa' },
+
+  // Traducciones ES -> DE con artículo
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "reloj"', answer: 'die Uhr' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "niña"', answer: 'das Mädchen' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "perro"', answer: 'der Hund' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "mesa"', answer: 'der Tisch' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "libro"', answer: 'das Buch' },
+
+  // Opción múltiple
+  { type: 'multiple', question: 'Was bedeutet "trinken"?', options: ['comer', 'beber', 'leer', 'escribir'], answer: 'beber' },
+  { type: 'multiple', question: 'Was bedeutet "lesen"?', options: ['leer', 'beber', 'correr', 'vivir'], answer: 'leer' },
+  { type: 'multiple', question: 'Was bedeutet "arbeiten"?', options: ['jugar', 'trabajar', 'dormir', 'beber'], answer: 'trabajar' },
+  { type: 'multiple', question: 'Was ist die richtige Übersetzung für "schlafen"?', options: ['comer', 'dormir', 'caminar', 'leer'], answer: 'dormir' },
+  { type: 'multiple', question: 'Was bedeutet "gehen"?', options: ['ir', 'venir', 'quedarse', 'hablar'], answer: 'ir' },
+
+  // Completar oraciones
+  { type: 'fill', question: 'Ich ____ eine Pizza. (essen)', answer: 'esse' },
+  { type: 'fill', question: 'Du ____ ein Buch. (lesen)', answer: 'liest' },
+  { type: 'fill', question: 'Wir ____ gern Musik. (hören)', answer: 'hören' },
+  { type: 'fill', question: 'Er ____ schnell. (laufen)', answer: 'läuft' },
+  { type: 'fill', question: 'Sie ____ in Berlin. (wohnen)', answer: 'wohnt' },
+
+  // Ordenar frases
+  { type: 'order', question: 'Ordne: ich / bin / müde', correctOrder: ['ich', 'bin', 'müde'] },
+  { type: 'order', question: 'Ordne: sie / spielt / Klavier', correctOrder: ['sie', 'spielt', 'Klavier'] },
+  { type: 'order', question: 'Ordne: wir / gehen / ins Kino', correctOrder: ['wir', 'gehen', 'ins Kino'] },
+  { type: 'order', question: 'Ordne: du / trinkst / Wasser', correctOrder: ['du', 'trinkst', 'Wasser'] },
+  { type: 'order', question: 'Ordne: ich / habe / Hunger', correctOrder: ['ich', 'habe', 'Hunger'] },
+
+  // Audio (Wikimedia Commons)
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/4/47/De-Buch.ogg', answer: 'Buch' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/De-Hund.ogg', answer: 'Hund' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/c/ce/De-Katze.ogg', answer: 'Katze' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/1/13/De-Zimmer.ogg', answer: 'Zimmer' },
+  { type: 'audio', question: 'Was hörst du?', src: 'https://upload.wikimedia.org/wikipedia/commons/8/89/De-Schule.ogg', answer: 'Schule' },
+
+  // Más opción múltiple con vocabulario
+  { type: 'multiple', question: 'Was bedeutet "Haus"?', options: ['casa', 'perro', 'auto', 'niño'], answer: 'casa' },
+  { type: 'multiple', question: 'Was bedeutet "Auto"?', options: ['libro', 'auto', 'lámpara', 'perro'], answer: 'auto' },
+  { type: 'multiple', question: 'Was bedeutet "Freund"?', options: ['enemigo', 'amigo', 'padre', 'hijo'], answer: 'amigo' },
+  { type: 'multiple', question: 'Was bedeutet "Tasche"?', options: ['mochila', 'reloj', 'camisa', 'puerta'], answer: 'mochila' },
+  { type: 'multiple', question: 'Was bedeutet "Stadt"?', options: ['ciudad', 'cielo', 'auto', 'niña'], answer: 'ciudad' },
+
+  // Más traducciones con artículos
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "ciudad"', answer: 'die Stadt' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "ventana"', answer: 'das Fenster' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "niño"', answer: 'der Junge' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "lámpara"', answer: 'die Lampe' },
+  { type: 'translate', question: 'Übersetze ins Deutsche mit Artikel: "reloj"', answer: 'die Uhr' },
+
+  // Completar frases variadas
+  { type: 'fill', question: 'Er ____ einen Film. (sehen)', answer: 'sieht' },
+  { type: 'fill', question: 'Ich ____ ein Auto. (haben)', answer: 'habe' },
+  { type: 'fill', question: 'Du ____ gut Deutsch. (sprechen)', answer: 'sprichst' },
+  { type: 'fill', question: 'Sie ____ gern tanzen. (mögen)', answer: 'mag' },
+  { type: 'fill', question: 'Wir ____ nach Hause. (gehen)', answer: 'gehen' }
+];
+
     ];
 
     let currentQuestion = 0;
